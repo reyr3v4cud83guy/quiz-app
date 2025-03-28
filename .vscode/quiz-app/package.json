@@ -1,24 +1,16 @@
 {
   "name": "quiz-app",
   "version": "1.0.0",
-  "description": "A quiz application that stores user responses and grades their answers.",
-  "main": "src/app.ts",
+  "description": "GCSE Biology Quiz Application",
+  "main": "server.js",
   "scripts": {
-    "start": "ts-node src/app.ts",
-    "build": "tsc",
-    "test": "jest"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "body-parser": "^1.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^4.5.4",
-    "ts-node": "^10.4.0",
-    "jest": "^27.0.6",
-    "@types/jest": "^27.0.2",
-    "@types/node": "^16.11.7",
-    "@types/express": "^4.17.13"
+    "mongoose": "^5.10.9",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5"
   },
   "author": "",
   "license": "ISC"

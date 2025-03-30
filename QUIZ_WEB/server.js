@@ -61,3 +61,28 @@ app.post("/submit", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+// Handle 404 errors
+app.use((req, res, next) => {
+  res.status(404).json({ error: "Not Found" });
+});
+// Handle 500 errors
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: "Internal Server Error" });
+});
+// Export the app for testing purposes
+module.exports = app;
+// Add a simple GET endpoint for testing
+app.get("/", (req, res) => {
+  res.send("Welcome to the Biology Quiz API!");
+});
+// Add a simple GET endpoint to fetch all responses
+app.get("/responses", async (req, res) => {
+  try {
+    const responses = await Response.find();
+    res.json(responses);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+// Add a simple GET endpoint to fetch a specific response by ID

@@ -7,11 +7,15 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.10.9",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5"
+    "axios": "^1.8.4",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.13.1"
   },
   "author": "Abdullahi Ahmed Osman",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.1"
+  }
 }

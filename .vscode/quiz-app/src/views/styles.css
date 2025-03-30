@@ -1,24 +1,30 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Verdana', sans-serif;
+    background-color: #e8f5e9; /* Light green background */
     margin: 0;
     padding: 20px;
+    background-image: url('https://www.transparenttextures.com/patterns/leaf.png'); /* Subtle leaf pattern */
 }
 
 h1, h2 {
-    color: #333;
+    color: #2e7d32; /* Dark green for headings */
+    text-align: center;
+    font-family: 'Georgia', serif;
 }
 
 form {
-    background: #fff;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 128, 0, 0.2); /* Green shadow */
+    border: 2px solid #81c784; /* Light green border */
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
+    color: #388e3c; /* Medium green for labels */
+    font-weight: bold;
 }
 
 input[type="text"],
@@ -27,27 +33,34 @@ input[type="number"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #a5d6a7; /* Light green border */
     border-radius: 4px;
+    background-color: #f1f8e9; /* Very light green background */
 }
 
 button {
-    background-color: #28a745;
+    background-color: #43a047; /* Vibrant green */
     color: white;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #2e7d32; /* Darker green on hover */
 }
 
 .result {
     margin-top: 20px;
     padding: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #a5d6a7; /* Light green border */
     border-radius: 5px;
-    background-color: #e9ecef;
+    background-color: #f1f8e9; /* Very light green background */
+    color: #2e7d32; /* Dark green text */
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    box-shadow: 0 2px 10px rgba(0, 128, 0, 0.1); /* Subtle green shadow */
 }

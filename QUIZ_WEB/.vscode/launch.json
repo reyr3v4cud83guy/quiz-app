@@ -1,10 +1,29 @@
 {
-    "configurations": [
+  "configurations": [
+    {
+      "type": "chrome",
+      "name": "http://localhost:3000",
+      "request": "launch",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/LENOVO/Downloads/BIOLOGY QUIZ/QUIZ_WEB",
+      "program": "c:/Users/LENOVO/Downloads/BIOLOGY QUIZ/QUIZ_WEB/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
         {
-            "type": "chrome",
-            "name": "http://localhost:3000",
-            "request": "launch",
-            "url": "http://localhost:3000"
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
         }
-    ]
+      ]
+    }
+  ]
 }

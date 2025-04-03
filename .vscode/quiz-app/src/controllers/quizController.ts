@@ -1,27 +1,37 @@
-import { Request, Response } from 'express';
-import { GradingService } from '../services/gradingService'; // Adjust the import path as necessary
+import { Request, Response } from "express";
 
 class QuizController {
-    constructor(private gradingService: GradingService) {}
+  submitResponse(req: Request, res: Response): void {
+    const { userId, answers } = req.body;
 
-    submitResponse(req: Request, res: Response): void {
-        const result = this.gradingService.gradeResponse(req.body);
-        this.saveResponse(req.body, result);
-        res.status(200).json({ score: result.score });
+    if (!userId || !Array.isArray(answers)) {
+      res.status(400).json({ error: "Invalid request data" });
+      return;
     }
 
-    getQuizData(_: Request, res: Response): void {
-        const quizData = this.retrieveQuizData();
-        res.status(200).json(quizData);
-    }
+    // Simulate saving the response (replace with actual database logic)
+    console.log("Response received:", { userId, answers });
 
-    private saveResponse(_: any, __: { score: number; total: number }): void {
-        // Implement the logic to save the response data and score
-    }
+    res.status(200).json({ message: "Response submitted successfully!" });
+  }
 
-    private retrieveQuizData(): any {
-        return {}; // Replace with actual quiz data retrieval logic
-    }
+  getQuizData(_: Request, res: Response): void {
+    const quizData = [
+      {
+        id: "q1",
+        question: "What is the powerhouse of the cell?",
+        options: ["Nucleus", "Mitochondria", "Ribosome", "Golgi Apparatus"],
+      },
+      {
+        id: "q2",
+        question: "Which process converts sunlight into chemical energy?",
+        options: ["Respiration", "Photosynthesis", "Fermentation", "Digestion"],
+      },
+      // Add more questions as needed
+    ];
+
+    res.status(200).json(quizData);
+  }
 }
 
 export default QuizController;

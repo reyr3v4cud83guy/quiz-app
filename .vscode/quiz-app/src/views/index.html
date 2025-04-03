@@ -10,77 +10,135 @@
     <h1>Quiz Application</h1>
     <form id="quizForm">
         <h2>Quiz Questions</h2>
-        <div id="questionsContainer">
-            <div class="question">
-                <p>1. What is the powerhouse of the cell?</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Animal_Cell.svg" alt="Animal Cell Diagram" style="width: 300px;">
-                <div>
-                    <label><input type="radio" name="q1" value="A"> A) Nucleus</label><br>
-                    <label><input type="radio" name="q1" value="B"> B) Mitochondria</label><br>
-                    <label><input type="radio" name="q1" value="C"> C) Ribosome</label><br>
-                    <label><input type="radio" name="q1" value="D"> D) Golgi Apparatus</label>
-                </div>
-            </div>
-            <div class="question">
-                <p>2. Which process is responsible for converting sunlight into chemical energy?</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Photosynthesis_overview.svg" alt="Photosynthesis Diagram" style="width: 300px;">
-                <div>
-                    <label><input type="radio" name="q2" value="A"> A) Respiration</label><br>
-                    <label><input type="radio" name="q2" value="B"> B) Photosynthesis</label><br>
-                    <label><input type="radio" name="q2" value="C"> C) Fermentation</label><br>
-                    <label><input type="radio" name="q2" value="D"> D) Digestion</label>
-                </div>
-            </div>
-            <div class="question">
-                <p>3. What is the basic unit of life?</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Prokaryote_cell_diagram.svg" alt="Basic Unit of Life Diagram" style="width: 300px;">
-                <div>
-                    <label><input type="radio" name="q3" value="A"> A) Atom</label><br>
-                    <label><input type="radio" name="q3" value="B"> B) Molecule</label><br>
-                    <label><input type="radio" name="q3" value="C"> C) Cell</label><br>
-                    <label><input type="radio" name="q3" value="D"> D) Tissue</label>
-                </div>
-            </div>
-            <!-- Questions 4 to 20 -->
-            <div class="question">
-                <p>4. What is the chemical symbol for water?</p>
-                <div>
-                    <label><input type="radio" name="q4" value="A"> A) H2O</label><br>
-                    <label><input type="radio" name="q4" value="B"> B) O2</label><br>
-                    <label><input type="radio" name="q4" value="C"> C) CO2</label><br>
-                    <label><input type="radio" name="q4" value="D"> D) NaCl</label>
-                </div>
-            </div>
-            <div class="question">
-                <p>5. What is the largest organ in the human body?</p>
-                <div>
-                    <label><input type="radio" name="q5" value="A"> A) Heart</label><br>
-                    <label><input type="radio" name="q5" value="B"> B) Liver</label><br>
-                    <label><input type="radio" name="q5" value="C"> C) Skin</label><br>
-                    <label><input type="radio" name="q5" value="D"> D) Brain</label>
-                </div>
-            </div>
-            <!-- Add similar blocks for questions 6 to 19 -->
-            <div class="question">
-                <p>20. The graph below shows the rate of photosynthesis at different light intensities. What happens to the rate of photosynthesis as light intensity increases?</p>
-                <div style="display: flex; align-items: center; gap: 20px;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Photosynthesis_light_response_curve.png" alt="Photosynthesis Graph" style="width: 300px;">
-                    <div>
-                        <label><input type="radio" name="q20" value="A"> A) It decreases</label><br>
-                        <label><input type="radio" name="q20" value="B"> B) It increases and then levels off</label><br>
-                        <label><input type="radio" name="q20" value="C"> C) It remains constant</label><br>
-                        <label><input type="radio" name="q20" value="D"> D) It increases indefinitely</label>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
+        <div id="questionsContainer"></div>
         <button type="submit">Submit Answers</button>
     </form>
     <div id="resultContainer" style="display: none;">
         <h2>Your Results</h2>
         <p id="score"></p>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const questions = [
+            {
+                question: "What is the powerhouse of the cell?",
+                options: ["Nucleus", "Mitochondria", "Ribosome", "Golgi Apparatus"],
+                image: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Animal_Cell.svg"
+            },
+            {
+                question: "Which process is responsible for converting sunlight into chemical energy?",
+                options: ["Respiration", "Photosynthesis", "Fermentation", "Digestion"],
+                image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Photosynthesis_overview.svg"
+            },
+            {
+                question: "What is the basic unit of life?",
+                options: ["Atom", "Molecule", "Cell", "Tissue"],
+                image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Prokaryote_cell_diagram.svg"
+            },
+            {
+                question: "What is the chemical symbol for water?",
+                options: ["H2O", "O2", "CO2", "NaCl"]
+            },
+            {
+                question: "What is the largest organ in the human body?",
+                options: ["Heart", "Liver", "Skin", "Brain"]
+            },
+            {
+                question: "Which organelle is responsible for protein synthesis?",
+                options: ["Ribosome", "Mitochondria", "Nucleus", "Golgi Apparatus"]
+            },
+            {
+                question: "What is the main function of red blood cells?",
+                options: ["Transport oxygen", "Fight infections", "Clot blood", "Store energy"]
+            },
+            {
+                question: "What is the primary pigment involved in photosynthesis?",
+                options: ["Chlorophyll", "Carotene", "Xanthophyll", "Anthocyanin"]
+            },
+            {
+                question: "Which macromolecule is the main source of energy for the body?",
+                options: ["Carbohydrates", "Proteins", "Lipids", "Nucleic Acids"]
+            },
+            {
+                question: "What is the genetic material in most living organisms?",
+                options: ["DNA", "RNA", "Proteins", "Lipids"]
+            },
+            {
+                question: "What is the process by which cells divide to form two identical daughter cells?",
+                options: ["Mitosis", "Meiosis", "Binary Fission", "Budding"]
+            },
+            {
+                question: "Which part of the brain controls balance and coordination?",
+                options: ["Cerebellum", "Cerebrum", "Medulla", "Hypothalamus"]
+            },
+            {
+                question: "What is the smallest bone in the human body?",
+                options: ["Stapes", "Femur", "Tibia", "Humerus"]
+            },
+            {
+                question: "What is the primary function of the large intestine?",
+                options: ["Absorb water", "Digest proteins", "Store bile", "Filter blood"]
+            },
+            {
+                question: "Which blood type is known as the universal donor?",
+                options: ["O-", "A+", "B+", "AB+"]
+            },
+            {
+                question: "What is the term for animals that maintain a constant body temperature?",
+                options: ["Endotherms", "Ectotherms", "Amphibians", "Reptiles"]
+            },
+            {
+                question: "What is the main function of the kidneys?",
+                options: ["Filter blood", "Produce insulin", "Store bile", "Absorb nutrients"]
+            },
+            {
+                question: "What is the term for the movement of water across a semi-permeable membrane?",
+                options: ["Osmosis", "Diffusion", "Active Transport", "Facilitated Diffusion"]
+            },
+            {
+                question: "What is the primary function of white blood cells?",
+                options: ["Fight infections", "Transport oxygen", "Clot blood", "Store energy"]
+            },
+            {
+                question: "The graph below shows the rate of photosynthesis at different light intensities. What happens to the rate of photosynthesis as light intensity increases?",
+                options: ["It decreases", "It increases and then levels off", "It remains constant", "It increases indefinitely"],
+                image: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Photosynthesis_light_response_curve.png"
+            }
+        ];
+
+        const questionsContainer = document.getElementById("questionsContainer");
+
+        questions.forEach((q, index) => {
+            const questionDiv = document.createElement("div");
+            questionDiv.classList.add("question");
+
+            const questionText = document.createElement("p");
+            questionText.textContent = `${index + 1}. ${q.question}`;
+            questionDiv.appendChild(questionText);
+
+            if (q.image) {
+                const questionImage = document.createElement("img");
+                questionImage.src = q.image;
+                questionImage.alt = `Question ${index + 1} Image`;
+                questionImage.style.width = "300px";
+                questionDiv.appendChild(questionImage);
+            }
+
+            const optionsDiv = document.createElement("div");
+            q.options.forEach((option, optIndex) => {
+                const label = document.createElement("label");
+                const input = document.createElement("input");
+                input.type = "radio";
+                input.name = `q${index + 1}`;
+                input.value = option;
+                label.appendChild(input);
+                label.append(` ${String.fromCharCode(65 + optIndex)}) ${option}`);
+                optionsDiv.appendChild(label);
+                optionsDiv.appendChild(document.createElement("br"));
+            });
+
+            questionDiv.appendChild(optionsDiv);
+            questionsContainer.appendChild(questionDiv);
+        });
+    </script>
 </body>
 </html>

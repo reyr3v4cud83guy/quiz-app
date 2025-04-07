@@ -4,9 +4,11 @@ import QuizController from '../controllers/quizController';
 const router = Router();
 const quizController = new QuizController();
 
-export const setRoutes = (app) => {
+import { Application } from 'express';
+
+export const setRoutes = (app: Application) => {
     app.use('/api/quiz', router);
 
-    router.post('/submit', quizController.submitResponse.bind(quizController));
-    router.get('/questions', quizController.getQuestions.bind(quizController));
+    router.post('/submit', quizController.submitQuiz.bind(quizController));
+    router.get('/questions', quizController.getQuizQuestions.bind(quizController));
 };

@@ -139,6 +139,38 @@
             questionDiv.appendChild(optionsDiv);
             questionsContainer.appendChild(questionDiv);
         });
+
+        document.getElementById("quizForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const userId = "user123"; // Replace with actual user ID logic
+            const answers = [];
+
+            document.querySelectorAll(".question").forEach((questionDiv, index) => {
+                const selectedOption = questionDiv.querySelector("input[type='radio']:checked");
+                if (selectedOption) {
+                    answers.push({ questionId: `q${index + 1}`, answer: selectedOption.value });
+                }
+            });
+
+            try {
+                const response = await fetch("http://localhost:3000/api/quiz/submit", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ userId, answers }),
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    document.getElementById("resultContainer").style.display = "block";
+                    document.getElementById("score").textContent = `Your Score: ${result.score}/${result.total}`;
+                } else {
+                    alert(result.error || "Failed to submit the quiz.");
+                }
+            } catch (error) {
+                console.error("Error submitting quiz:", error);
+            }
+        });
     </script>
 </body>
 </html>
